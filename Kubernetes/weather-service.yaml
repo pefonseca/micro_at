@@ -23,8 +23,10 @@ kind: Service
 metadata:
   name: weather-service
 spec:
+  type: NodePort
   ports:
     - port: 8080
       targetPort: 8080
+      nodePort: 30001
   selector:
     app: weather-service

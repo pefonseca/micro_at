@@ -43,8 +43,10 @@ kind: Service
 metadata:
   name: audit-service
 spec:
+  type: NodePort
   ports:
     - port: 8081
       targetPort: 8081
+      nodePort: 30002
   selector:
     app: audit-service
