@@ -6,15 +6,15 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: audit-service
+      app: location-service
   template:
     metadata:
       labels:
-        app: audit-service
+        app: location-service
     spec:
       containers:
-        - name: audit-service
-          image: audit-service:latest
+        - name: location-service
+          image: location-service:latest
           ports:
             - containerPort: 8082
           env:
@@ -41,7 +41,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: audit-service
+  name: location-service
 spec:
   type: NodePort
   ports:
@@ -49,4 +49,4 @@ spec:
       targetPort: 8081
       nodePort: 30002
   selector:
-    app: audit-service
+    app: location-service
